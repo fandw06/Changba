@@ -19,7 +19,7 @@ public class ChangMain {
 	 */
 	private static void createAndShowGUI() {
 		
-		JFrame window = new JFrame("Haochang");
+		JFrame window = new JFrame("Changba");
 		ChangGUI gui = new ChangGUI();
 		window.setSize(new Dimension(600, 580));
 		window.setLocation(500, 100);

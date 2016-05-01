@@ -67,11 +67,7 @@ public class ChangGUI{
 	 */
 	private Person person;
 	private List<Song> songList;
-	/**
-	String bk = "http://ok.okchang.com/home-10800746.html";
-	String zhuo = "http://ok.okchang.com/home-10511316.html";
-	String zishu = "http://ok.okchang.com/home-10362725.html";
-	*/
+
 	private final String DEFAULT_PAGE = "http://changba.com/u/45021732";
 	private String page;
 	private class DlInfo {
@@ -202,7 +198,7 @@ public class ChangGUI{
 					"User ID : ",
 					"Input a person's homepage",
 				    JOptionPane.OK_CANCEL_OPTION);	
-			if (page!=null && page.matches("\\d+"))
+			if (page!=null && page.matches("[0-9]{8,12}+"))
 				displayPage("http://changba.com/u/"+page);			
 			else
 				JOptionPane.showMessageDialog(null, 
@@ -314,7 +310,7 @@ public class ChangGUI{
 					int fileSize = Crawler.getFileSize(website);
 					try {
 						ReadableByteChannel rbc = Channels.newChannel(website.openStream());
-						FileOutputStream fos = new FileOutputStream(song.title+".mp3");
+						FileOutputStream fos = new FileOutputStream(".\\songs\\"+song.title+".mp3");
 						int bufferSize = 60000;
 						ByteBuffer buffer = ByteBuffer.allocate(bufferSize);
 						int bytesRead = rbc.read(buffer);
